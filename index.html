@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kammo ❤️ Buguu</title>
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #1a001f, #000);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    bottom:-10px;
+    font-size:20px;
+    animation: float 6s linear infinite;
+    color:pink;
+}
+@keyframes float{
+    0%{transform:translateY(0) scale(1);}
+    100%{transform:translateY(-100vh) scale(1.5);}
+}
+
+/* Login Box */
+.login-box{
+    margin-top:150px;
+}
+input{
+    padding:10px;
+    border-radius:20px;
+    border:none;
+    outline:none;
+}
+button{
+    padding:10px 20px;
+    border-radius:20px;
+    border:none;
+    background:pink;
+    color:black;
+    cursor:pointer;
+    margin-top:10px;
+    font-weight:bold;
+}
+button:hover{
+    box-shadow:0 0 15px hotpink;
+}
+
+/* Quiz Section */
+.quiz{
+    display:none;
+    margin-top:80px;
+}
+.question{
+    margin:20px;
+}
+
+/* Love Letter Popup */
+.popup{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(255,192,203,0.1);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 30px hotpink;
+    backdrop-filter:blur(10px);
+}
+.popup h2{
+    color:pink;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating Hearts Script -->
+<script>
+setInterval(()=>{
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(20+Math.random()*30)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},6000);
+},500);
+</script>
+
+<!-- LOGIN -->
+<div class="login-box" id="loginBox">
+    <h1>Kammo ❤️ Buguu</h1>
+    <p>Enter Password To Unlock Love 💕</p>
+    <input type="password" id="password" placeholder="Enter Password">
+    <br>
+    <button onclick="checkPassword()">Unlock 💖</button>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz" id="quizBox">
+    <h2>Love Quiz For Mr. Shubhraj 💘</h2>
+
+    <div class="question">
+        1) First meet date?<br>
+        <button onclick="correct()">13 Dec 2021</button>
+    </div>
+
+    <div class="question">
+        2) Our anniversary date?<br>
+        <button onclick="correct()">12 Dec 2021</button>
+    </div>
+
+    <div class="question">
+        3) My favourite colour?<br>
+        <button onclick="correct()">Black</button>
+    </div>
+
+    <div class="question">
+        4) What I love in you?<br>
+        <button onclick="correct()">To be mine</button>
+    </div>
+
+    <div class="question">
+        5) What is importance of Mr in my life?<br>
+        <button onclick="correct()">Everything 💖</button>
+    </div>
+
+    <div class="question">
+        6) Will you marry me?<br>
+        <button onclick="showLove()">Yesssss 💍</button>
+        <button onclick="alert('Wrong answer 😜 Try Again!')">Nooooo</button>
+    </div>
+</div>
+
+<!-- LOVE LETTER POPUP -->
+<div class="popup" id="lovePopup">
+    <h2>💌 My Final Love Letter 💌</h2>
+    <p>
+    From 12 Dec To Forever ❤️ <br><br>
+    You are not just part of my life…<br>
+    You are my whole world 🌍💖 <br><br>
+    No matter how much we fight,<br>
+    My heart always chooses you 🥹💕 <br><br>
+    I want you today,<br>
+    Tomorrow,<br>
+    And forever 💍✨
+    </p>
+</div>
+
+<script>
+function checkPassword(){
+    var pass=document.getElementById("password").value;
+    if(pass==="shubhraj"){
+        document.getElementById("loginBox").style.display="none";
+        document.getElementById("quizBox").style.display="block";
+    }else{
+        alert("Wrong Password 😢");
+    }
+}
+function correct(){
+    alert("Correct 💕");
+}
+function showLove(){
+    document.getElementById("lovePopup").style.display="block";
+}
+</script>
+
+</body>
+</html>
